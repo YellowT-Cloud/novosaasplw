@@ -287,8 +287,8 @@ const useStyles = makeStyles((theme) => ({
             setLoading(false);
         }
 
-        // handleChangeTab(null, "tickets");
-        handleChangeTab(null, "open");
+        handleChangeTab(null, "tickets");
+        //handleChangeTab(null, "open");
         history.push(`/tickets/${ticket.uuid}`);
     };
 	

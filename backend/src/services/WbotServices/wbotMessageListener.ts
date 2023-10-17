@@ -331,7 +331,7 @@ export const getBodyMessage = (msg: proto.IWebMessageInfo): string | null => {
       ),
       liveLocationMessage: `Latitude: ${msg.message.liveLocationMessage?.degreesLatitude} - Longitude: ${msg.message.liveLocationMessage?.degreesLongitude}`,
       documentMessage: msg.message?.documentMessage?.title,
-      audioMessage: "¨¢udio",
+      audioMessage: "Audio",
       listMessage: getBodyButton(msg) || msg.message.listResponseMessage?.title,
       listResponseMessage: msg.message?.listResponseMessage?.singleSelectReply?.selectedRowId,
       reactionMessage: msg.message.reactionMessage?.text || "reaction",
@@ -869,7 +869,7 @@ const verifyQueue = async (
     });
 
 
-    /* Tratamento para envio de mensagem quando a fila est¨¢ fora do expediente */
+    /* Tratamento para envio de mensagem quando a fila estï¿½ï¿½ fora do expediente */
     if (choosenQueue.options.length === 0) {
       const queue = await Queue.findByPk(choosenQueue.id);
       const { schedules }: any = queue;
@@ -1482,7 +1482,7 @@ const handleMessage = async (
     try {
       if (!msg.key.fromMe && scheduleType) {
         /**
-         * Tratamento para envio de mensagem quando a empresa est¨¢ fora do expediente
+         * Tratamento para envio de mensagem quando a empresa estï¿½ï¿½ fora do expediente
          */
         if (
           scheduleType.value === "company" &&
@@ -1512,7 +1512,7 @@ const handleMessage = async (
         if (scheduleType.value === "queue" && ticket.queueId !== null) {
 
           /**
-           * Tratamento para envio de mensagem quando a fila est¨¢ fora do expediente
+           * Tratamento para envio de mensagem quando a fila estï¿½ï¿½ fora do expediente
            */
           const queue = await Queue.findByPk(ticket.queueId);
 
@@ -1599,7 +1599,7 @@ const handleMessage = async (
       //Fluxo fora do expediente
       if (!msg.key.fromMe && scheduleType && ticket.queueId !== null) {
         /**
-         * Tratamento para envio de mensagem quando a fila est¨¢ fora do expediente
+         * Tratamento para envio de mensagem quando a fila estï¿½ï¿½ fora do expediente
          */
         const queue = await Queue.findByPk(ticket.queueId);
 
