@@ -26,6 +26,7 @@ import announcementRoutes from "./announcementRoutes";
 import chatRoutes from "./chatRoutes";
 import invoiceRoutes from "./invoicesRoutes";
 import subscriptionRoutes from "./subScriptionRoutes";
+import ticketTagRoutes from "./ticketTagRoutes";
 
 const routes = Router();
 
@@ -56,6 +57,6 @@ routes.use(announcementRoutes);
 routes.use(chatRoutes);
 routes.use(subscriptionRoutes);
 routes.use(invoiceRoutes);
-
+routes.use(ticketTagRoutes);
 
 export default routes;

@@ -225,6 +225,8 @@ const UpdateTicketService = async ({
     await ticketTraking.save();
 
     if (ticket.status !== oldStatus || ticket.user?.id !== oldUserId) {
+      console.log("ENTROU AQUI", oldStatus, ticket.id)
+      
       io.to(oldStatus).emit(`company-${companyId}-ticket`, {
         action: "delete",
         ticketId: ticket.id

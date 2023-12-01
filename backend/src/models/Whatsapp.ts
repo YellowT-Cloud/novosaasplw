@@ -102,6 +102,14 @@ class Whatsapp extends Model<Whatsapp> {
 
   @Column
   token: string;
+
+  @Default(0)
+  @Column
+  timeSendQueue: number;
+
+  @Column
+  sendIdQueue: number;
+
 }
 
 export default Whatsapp;

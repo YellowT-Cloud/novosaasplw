@@ -271,16 +271,6 @@ export default function Options(props) {
     setLoadingSendGreetingAccepted(false);
   }  
   
-  async function handleSettingsTransfTicket(value) {
-    setSettingsTransfTicket(value);
-    setLoadingSettingsTransfTicket(true);
-    await update({
-      key: "sendMsgTransfTicket",
-      value,
-    });
-	toast.success("Operação atualizada com sucesso.");
-    setLoadingSettingsTransfTicket(false);
-  }
   
   {/*NOVO CÓDIGO*/}    
 
@@ -291,6 +281,8 @@ export default function Options(props) {
       key: "sendMsgTransfTicket",
       value,
     });
+
+    toast.success("Operação atualizada com sucesso.");
     setLoadingSettingsTransfTicket(false);
   } 
  

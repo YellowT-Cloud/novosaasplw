@@ -33,7 +33,7 @@ interface Response {
   hasMore: boolean;
 }
 
-const ListTicketsService = async ({
+const ListTicketsServiceKanban = async ({
   searchParam = "",
   pageNumber = "1",
   queueIds,
@@ -57,7 +57,7 @@ const ListTicketsService = async ({
     {
       model: Contact,
       as: "contact",
-      attributes: ["id", "name", "number", "email", "profilePicUrl"]
+      attributes: ["id", "name", "number", "email"]
     },
     {
       model: Queue,
@@ -85,12 +85,10 @@ const ListTicketsService = async ({
     whereCondition = { queueId: { [Op.or]: [queueIds, null] } };
   }
 
-  if (status) {
-    whereCondition = {
-      ...whereCondition,
-      status
-    };
-  }
+  whereCondition = {
+    ...whereCondition,
+    status: { [Op.or]: ["pending", "open"] }
+  };
 
   if (searchParam) {
     const sanitizedSearchParam = searchParam.toLocaleLowerCase().trim();
@@ -224,7 +222,6 @@ const ListTicketsService = async ({
     order: [["updatedAt", "DESC"]],
     subQuery: false
   });
-
   const hasMore = count > offset + tickets.length;
 
   return {
@@ -234,4 +231,4 @@ const ListTicketsService = async ({
   };
 };
 
-export default ListTicketsService;
+export default ListTicketsServiceKanban;

@@ -53,11 +53,11 @@ const useStyles = makeStyles((theme) => ({
     },
     backgroundColor: theme.palette.fancyBackground,
     '& .MuiButton-outlinedPrimary': {
-      color: theme.mode === 'light' ? '#2DDD7F' : '#FFF',
+      color: theme.mode === 'light' ? '#10aa62' : '#FFF',
       border: theme.mode === 'light' ? '1px solid rgba(0 124 102)' : '1px solid rgba(255, 255, 255, 0.5)',
     },
     '& .MuiTab-textColorPrimary.Mui-selected': {
-      color: theme.mode === 'light' ? '#2DDD7F' : '#FFF',
+      color: theme.mode === 'light' ? '#10aa62' : '#FFF',
     }
   },
   avatar: {
@@ -448,12 +448,9 @@ const LoggedInLayout = ({ children, themeToggle }) => {
               <MenuItem onClick={handleOpenUserModal}>
                 {i18n.t("mainDrawer.appBar.user.profile")}
               </MenuItem>
-              <MenuItem onClick={handleClickLogout}>
-                {i18n.t("mainDrawer.appBar.user.logout")}
-              </MenuItem>
+
             </Menu>
           </div>
-
         </Toolbar>
       </AppBar>
       <main className={classes.content}>

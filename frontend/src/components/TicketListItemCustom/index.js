@@ -184,7 +184,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
   {/*PLW DESIGN INSERIDO O dentro do const handleChangeTab*/}
-  const TicketListItemCustom = ({handleChangeTab, ticket }) => {
+  const TicketListItemCustom = ({ ticket }) => {
   const classes = useStyles();
   const history = useHistory();
   const [loading, setLoading] = useState(false);
@@ -255,7 +255,7 @@ const useStyles = makeStyles((theme) => ({
     if (isMounted.current) {
       setLoading(false);
     }
-    history.push(`/tickets/`);
+    history.push(`/tickets/${ticket.uuid}`);
   };
 
     const handleAcepptTicket = async (id) => {
@@ -287,8 +287,8 @@ const useStyles = makeStyles((theme) => ({
             setLoading(false);
         }
 
-        handleChangeTab(null, "tickets");
-        //handleChangeTab(null, "open");
+        // handleChangeTab(null, "tickets");
+        // handleChangeTab(null, "open");
         history.push(`/tickets/${ticket.uuid}`);
     };
 	
@@ -496,7 +496,7 @@ const useStyles = makeStyles((theme) => ({
               size="small"
               loading={loading}
 			  //PLW DESIGN INSERIDO O handleChangeTab
-              onClick={e => handleAcepptTicket(ticket.id, handleChangeTab)}
+              onClick={e => handleAcepptTicket(ticket.id)}
             >
               {i18n.t("ticketsList.buttons.accept")}
             </ButtonWithSpinner>
